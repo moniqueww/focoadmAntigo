@@ -30,9 +30,8 @@ Route::get('pontos', 'PontoController@destroy');
 
 //TABELA
     //cadastrar predio
-    Route::resource('predio','PredioController');
+    Route::resource('predio','PredioController')->name('predio', 'predio');
     //cadastrar requisito
-    Route::resource('requisito','RequisitoController');
+    Route::resource('requisito','RequisitoController')->name('requisito', 'requisito');
     //tabela
-    Route::view('tabela','tabela');
-
+    Route::resource('tabela','TabelaController');

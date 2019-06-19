@@ -50,8 +50,9 @@ class TabelaController extends Controller
      */
     public function show($id)
     {
-        return Predio::findOrFail($id);
-        return Requisito::findOrFail($id);
+        $data['predio'] = Predio::findOrFail($id);
+        $data['requisito'] = Requisito::findOrFail($id);
+        return $data;
     }
 
     /**

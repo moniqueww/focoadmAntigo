@@ -22,7 +22,7 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('predio.store') }}">
+      <form method="post" action="{{ route('predios.store') }}">
           <div class="form-group">
               @csrf
               <label for="hora">Nome</label>
