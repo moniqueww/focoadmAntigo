@@ -38,12 +38,12 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'funcionarios',
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'funcionarios',
             'hash' => false,
         ],
     ],
@@ -77,6 +77,15 @@ return [
         // ],
     ],
 
+    'funcionarios' => [
+        'driver' => 'eloquent',
+        'model' => App\Funcionario::class,
+        'funcionarios' => [
+            'provider' => 'customusers',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+    ],
     /*
     |--------------------------------------------------------------------------
     | Resetting Passwords

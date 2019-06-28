@@ -15,7 +15,7 @@ class PredioController extends Controller
     {
         $predios = Predio::all();
 
-        return view('predio', compact('predios'));
+        return view('predio', 'dataCreate', compact('predios'));
     }
 
     /**

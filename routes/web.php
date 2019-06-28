@@ -17,21 +17,23 @@ Route::get('/', function () {
 
 //FUNCIONARIO
 Route::resource('funcionario', 'FuncionarioController');
-//apagar funcionario
-Route::get('/funcionario/apaga/{id}', 'FuncionarioController@destroy');
 //editar funcionario
 Route::get('/funcionario/edita/{id}', 'FuncionarioController@edit');
 Route::post('/funcionario/{id}', 'FuncionarioController@update');
 
 //PONTOS
 Route::resource('pontos','PontoController');
-//apagar ponto
-Route::get('pontos', 'PontoController@destroy');
 
 //TABELA
     //cadastrar predio
-    Route::resource('predio','PredioController')->name('predio', 'predio');
+    Route::resource('predio','PredioController');
     //cadastrar requisito
-    Route::resource('requisito','RequisitoController')->name('requisito', 'requisito');
+    Route::resource('requisito','RequisitoController');
+    //cadastrar data
+    Route::resource('data','DataController');
     //tabela
     Route::resource('tabela','TabelaController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
