@@ -75,7 +75,7 @@ class FuncionarioController extends Controller
     {
         $funcionario = Funcionario::findOrFail($id);
 
-        return view('create', compact('funcionario'));
+        return view('funcionarioEdit', compact('funcionario'));
     }
 
     /**
@@ -95,7 +95,7 @@ class FuncionarioController extends Controller
         ]);
         Funcionario::whereId($id)->update($validatedData);
 
-        return redirect('/create')->with('success', 'Funcionario is successfully updated');
+        return redirect('/funcionario')->with('success', 'Funcionario is successfully updated');
     }
 
     /**

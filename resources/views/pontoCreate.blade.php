@@ -55,7 +55,7 @@
         <td> {{$pontos->created_at}} </td>
         <td> {{$pontos->hora}} </td>
         <td>
-          <a href="/ponto/apaga/{{$pontos->id}}" class="btn btn-sm btn-danger">Apagar</a>
+          <a href="/pontos/apaga/{{$pontos->id}}" class="btn btn-sm btn-danger">Apagar</a>
         </td>
       </tr>
       @endforeach

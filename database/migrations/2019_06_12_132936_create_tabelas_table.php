@@ -16,7 +16,7 @@ class CreateTabelasTable extends Migration
         Schema::create('tabelas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('id_predio');
-            $table->integer('id-requisito');
+            $table->integer('id_requisito');
             $table->date('data');
             $table->timestamps();
         });

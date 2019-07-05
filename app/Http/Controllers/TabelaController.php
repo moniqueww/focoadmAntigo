@@ -39,7 +39,14 @@ class TabelaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'data' => 'required|max:255',
+            'id_predio' => 'required',
+            'id_requisito' => 'required',
+        ]);
+        $tabela = Tabela::create($validatedData);
+
+        return redirect('/tabela')->with('success', 'Data is successfully saved');
     }
 
     /**

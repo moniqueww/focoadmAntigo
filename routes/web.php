@@ -23,17 +23,24 @@ Route::post('/funcionario/{id}', 'FuncionarioController@update');
 
 //PONTOS
 Route::resource('pontos','PontoController');
+Route::get('/pontos/apaga/{id}', 'PontoController@destroy');   
+
 
 //TABELA
     //cadastrar predio
     Route::resource('predio','PredioController');
+    //editar prédio
+    Route::get('/predio/edita/{id}', 'PredioController@edit');
+    Route::post('/predio/{id}', 'PredioController@update');
+    //excluir predio
+    Route::get('/predio/apaga/{id}', 'PredioController@destroy');   
     //cadastrar requisito
     Route::resource('requisito','RequisitoController');
-    //cadastrar data
-    Route::resource('data','DataController');
+    //editar requisito
+    Route::get('/requisito/edita/{id}', 'RequisitoController@edit');
+    Route::post('/requisito/{id}', 'RequisitoController@update');
+    //excluir requisito
+    Route::get('/requisito/apaga/{id}', 'RequisitoController@destroy');
     //tabela
     Route::resource('tabela','TabelaController');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

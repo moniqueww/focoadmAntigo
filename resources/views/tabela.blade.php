@@ -21,7 +21,7 @@
     </div><br />
   @endif
   <a href="#"> </a>
-  <form method="post" action="{{ route('data.store') }}">
+  <form method="post" action="{{ route('tabela.store') }}">
           <div class="form-group">
               @csrf
           </div>
@@ -30,8 +30,8 @@
               <input type="date" class="form-control" name="data"/>
           </div>
           <div class="form-group">
-              <label for="predio">Prédio:</label>
-              <select name="predio">
+              <label for="id_predio">Prédio:</label>
+              <select name="id_predio">
                 <option value='' disabled selected> </option>
                 @foreach($data['predio'] as $predio)
                 <option value='{{$predio->id}}'> {{$predio->nome}} </option>
@@ -39,8 +39,8 @@
               </select>
           </div>
           <div class="form-group">
-              <label for="cargo">Requisito:</label>
-              <select name="cargo">
+              <label for="id_requisito">Requisito:</label>
+              <select name="id_requisito">
                 <option value='' disabled selected> </option>
                 @foreach($data['requisito'] as $requisito)
                 <option value='{{$predio->id}}'> {{$requisito->descricao}} </option>

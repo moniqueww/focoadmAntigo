@@ -12,10 +12,10 @@ class PredioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {  
         $predios = Predio::all();
 
-        return view('predio', 'dataCreate', compact('predios'));
+        return view('predio', compact('predios'));
     }
 
     /**
@@ -63,7 +63,9 @@ class PredioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $predio = Predio::findOrFail($id);
+
+        return view('predioEdit', compact('predio'));
     }
 
     /**
@@ -75,7 +77,12 @@ class PredioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'nome' => 'required|max:255',
+        ]);
+        Predio::whereId($id)->update($validatedData);
+
+        return redirect('/predio')->with('success', 'Predio is successfully updated');
     }
 
     /**
@@ -86,6 +93,9 @@ class PredioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $predio = Predio::findOrFail($id);
+        $predio->delete();
+
+        return redirect('/predio')->with('success', 'Predio is successfully deleted');
     }
 }

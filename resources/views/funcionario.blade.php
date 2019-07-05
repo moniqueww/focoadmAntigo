@@ -59,7 +59,7 @@
           <td>Nome</td>
           <td>Email</td>
           <td>Cargo</td>
-          <td colspan="2">Action</td>
+          <td colspan="2">Actions</td>
         </tr>
     </thead>
     <tbody>
@@ -69,8 +69,9 @@
         <td> {{$funcionario->nome}} </td>
         <td> {{$funcionario->email}} </td>
         <td> {{$funcionario->cargo}} </td>
-        <td><a href="/funcionario/edita/{{$funcionario->id}}" class="btn btn-sm btn-primary">Editar</a>
-            <a href="/funcionario/apaga/{{$funcionario->id}}" class="btn btn-sm btn-danger">Apagar</a> </td>
+        <td><a href="{{ route('funcionario.edit',$funcionario->id)}}" class="btn btn-primary">Edit</a>
+            <a href="{{ route('funcionario.destroy', $funcionario->id)}}" class="btn btn-primary"> Apagar</a>
+        </td>
       </tr>
       @endforeach
     </tbody>

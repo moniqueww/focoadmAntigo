@@ -63,7 +63,9 @@ class RequisitoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $requisito = Requisito::findOrFail($id);
+
+        return view('requisitoEdit', compact('requisito'));
     }
 
     /**
@@ -75,7 +77,12 @@ class RequisitoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'descricao' => 'required|max:255',
+        ]);
+        Requisito::whereId($id)->update($validatedData);
+
+        return redirect('/requisito')->with('success', 'Requisito is successfully updated');
     }
 
     /**
@@ -86,6 +93,9 @@ class RequisitoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $requisito = Requisito::findOrFail($id);
+        $requisito->delete();
+
+        return redirect('/requisito')->with('success', 'Requisito is successfully deleted');
     }
 }
