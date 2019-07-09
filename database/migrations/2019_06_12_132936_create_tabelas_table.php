@@ -15,8 +15,10 @@ class CreateTabelasTable extends Migration
     {
         Schema::create('tabelas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('id_predio');
-            $table->integer('id_requisito');
+            $table->unsignedBigInteger('id_predio');
+            $table->foreign('id_predio')->references('id')->on('predios');
+            $table->unsignedBigInteger('id_requisito');
+            $table->foreign('id_requisito')->references('id')->on('requisitos');
             $table->date('data');
             $table->timestamps();
         });

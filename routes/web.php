@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -43,4 +43,3 @@ Route::get('/pontos/apaga/{id}', 'PontoController@destroy');
     Route::get('/requisito/apaga/{id}', 'RequisitoController@destroy');
     //tabela
     Route::resource('tabela','TabelaController');
-

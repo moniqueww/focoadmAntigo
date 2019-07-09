@@ -43,7 +43,7 @@
               <select name="id_requisito">
                 <option value='' disabled selected> </option>
                 @foreach($data['requisito'] as $requisito)
-                <option value='{{$predio->id}}'> {{$requisito->descricao}} </option>
+                <option value='{{$requisito->id}}'> {{$requisito->descricao}} </option>
                 @endforeach
               </select>
           </div>
